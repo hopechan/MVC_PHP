@@ -4,7 +4,7 @@
  */
     class View{
         function __construct() {
-            echo "<h1>Prueba de las vistas que pertenezcan a cada controlador en su momento</h1>";
+            //echo "<h1>Prueba de las vistas que pertenezcan a cada controlador en su momento</h1>";
         }
 
         function render($nombre){
@@ -14,6 +14,5 @@
              * ubicacion ------>view/index.php
              */
         }
-    }
-    
+    }  
 ?>

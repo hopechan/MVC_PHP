@@ -7,9 +7,6 @@
     <title>Document</title>
 </head>
 <body>
-    <?php
-        echo $this->sms;
-    ?>
     <br><br>
     <h1 style="color:red">Controlador No Existente :´v</h1>
 </body>

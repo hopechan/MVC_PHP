@@ -2,7 +2,7 @@
     class Main  extends Controller{
         function __construct() {
             parent::__construct(); //acceder al constructor de la clase padre
-            echo "Soy el controlador main";
+            $this->view->render("main/index");
         }
         /*
             metodo de prueba

@@ -3,8 +3,6 @@
     require_once "controllers/errores.php";
     class App{
         function __construct() {
-            //TEXTO DE PRUEBA
-            echo "Holi desde el contructor <br><br>";
             //obtener la url
             $url = $_GET['url'];
             //echo "<h3>".$url."</h3><br>";
