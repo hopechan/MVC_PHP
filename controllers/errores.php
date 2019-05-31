@@ -1,7 +1,9 @@
 <?php
-    class Errores  {
+    class Errores  extends Controller{
          function __construct() {
-            echo "Archivo no encontrado";
+            parent::__construct();
+            $this->view->sms = "Archivo no encontrado";
+            $this->view->render("errores/index");
         }
     }
 ?>
