@@ -7,7 +7,10 @@
     <title>Document</title>
 </head>
 <body>
-    <br><br>
-    <h1 style="color:red">Controlador No Existente :´v</h1>
+    <?php require 'views/header.php' ?>
+    <div id="main">
+        <h1 style="color:red">Controlador No Existente :´v</h1>
+    </div>
+    <?php require 'views/footer.php' ?>
 </body>
 </html>

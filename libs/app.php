@@ -4,12 +4,18 @@
     class App{
         function __construct() {
             //obtener la url
-            $url = $_GET['url'];
-            //echo "<h3>".$url."</h3><br>";
+            $url = isset($_GET['url'])?$_GET['url']:null;
             //elimina caracteres
             $url = rtrim($url, "/");
             //
             $url = explode("/", $url);
+            //validar que en el indice 0 de la url exista un controlador
+            if (empty($url[0])) {
+                $archivoController = 'controllers/main.php';
+                require_once $archivoController;
+                $controller = new Main();
+                return false;
+            }
             $archivoController = 'controllers/'.$url[0].'.php';
             if (file_exists($archivoController)) {
                 require_once $archivoController;//'controllers/main.php'
