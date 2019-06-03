@@ -1,6 +1,7 @@
-<link rel="stylesheet" href="public/css/style.css">
+
 <?php
     //referencias de archivos
+    require_once "config/config.php";
     require_once "libs/controller.php";
     require_once "libs/model.php";
     require_once "libs/view.php";
