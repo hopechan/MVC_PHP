@@ -1,6 +1,6 @@
 <?php
     class AlumnoModel extends Model{
-        public function __construct(Type $var = null) {
+        public function __construct() {
             parent::__construct();
         }
 
