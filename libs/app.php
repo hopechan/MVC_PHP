@@ -14,6 +14,9 @@
                 $archivoController = 'controllers/main.php';
                 require_once $archivoController;
                 $controller = new Main();
+                //el modelo main
+                $controller->loadModel('main');
+                $controller->render();
                 return false;
             }
             $archivoController = 'controllers/'.$url[0].'.php';
@@ -21,9 +24,12 @@
                 require_once $archivoController;//'controllers/main.php'
                 /*Objeto de la clase del controlador recibido */
                 $controller = new $url[0];
+                $controller->loadModel($url[0]);
                 //Se verifica que si existe el metodo ingresado en la posicion 1 de la URL
                 if (isset($url[1])) {
                     $controller->{$url[1]}();
+                }else{
+                    $controller->render();
                 }
             } else {
                 $controller = new Errores();

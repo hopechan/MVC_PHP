@@ -2,6 +2,6 @@
 <div id="header">
     <ul>
         <li><a href="<?php constant('URL');?>main">Home</a></li>
-        <li><a href="<?php constant('URL');?>alumnoController">Alumno</a></li>
+        <li><a href="<?php constant('URL');?>alumno">Alumno</a></li>
     </ul>
 </div>

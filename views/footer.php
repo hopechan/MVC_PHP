@@ -1,3 +1,3 @@
 <div id="footer">
-    &copy;Made for Esperanza Dueñas :v
+    &copy;Made by Esperanza Dueñas :v
 </div>
