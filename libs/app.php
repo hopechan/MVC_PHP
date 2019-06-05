@@ -16,7 +16,7 @@
                 $controller = new Main();
                 //el modelo main
                 $controller->loadModel('main');
-                $controller->render();
+                $controller->index();
                 return false;
             }
             $archivoController = 'controllers/'.$url[0].'.php';
@@ -29,7 +29,7 @@
                 if (isset($url[1])) {
                     $controller->{$url[1]}();
                 }else{
-                    $controller->render();
+                    $controller->index();
                 }
             } else {
                 $controller = new Errores();

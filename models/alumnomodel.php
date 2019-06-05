@@ -1,4 +1,5 @@
 <?php
+    include_once 'models/alumnos.php';
     class AlumnoModel extends Model{
         public function __construct() {
             parent::__construct();
@@ -15,7 +16,8 @@
             try {
                 $query = $this->db->conn()->query("SELECT * FROM Alumno");
                 while ($row = $query->fetch()) {
-                    $item = new Alumno();
+                    //se crea objeto de la clase Alumnos
+                    $item = new Alumnos();
                     $item->id = $row['id_Alumno'];
                     $item->nombre = $row['nombre'];
                     $item->apellido = $row['apellido'];

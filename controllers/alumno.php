@@ -5,10 +5,21 @@
             $this->view->alumnos = [];
         }
 
-        function render(){
+        function index(){
             $alumnos = $this->model->get();
             $this->view->alumnos = $alumnos;
             $this->view->render('alumno/index');
         }
+
+        //metodo para nuevo registro
+        function nuevo(){
+            $this->view->render('alumno/nuevo');
+
+        }
+
+        function insert(){
+            # code...
+        }
+
     }
 ?>

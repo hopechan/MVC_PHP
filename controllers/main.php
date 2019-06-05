@@ -4,7 +4,7 @@
             parent::__construct(); //acceder al constructor de la clase padre
         }
 
-        function render(){
+        function index(){
             $this->view->render('main/index');
         }
     }
