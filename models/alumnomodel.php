@@ -6,8 +6,18 @@
         }
 
         //metodo que permite hacer un insert
-        function insert(){
-            echo "En teoria este metodo funciona porque se aplico MVC :v";
+        function insert($data){
+            try {
+                $sql = "INSERT INTO Alumno(nombre, apellido, telefono) VALUES(:nombre, :apellido, :telefono)";
+                $query = $this->db->conn()->prepare($sql);
+                $query->execute(['nombre'=>$data['nombre'], 'apellido'=>$data['apellido'], 'telefono'=>$data['telefono']]);
+                return true;
+                /*$query->bindParam(':nombre', $data['nombre']);
+                $query->bindParam(':apellido', $data['apellido']);
+                $query->bindParam(':telefono', $data['telefono']);*/
+            } catch (PDOException $e) {
+                return false;
+            }
         }
 
         //metodo que permitira obtener registros de la base de datos

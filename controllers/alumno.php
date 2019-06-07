@@ -18,7 +18,11 @@
         }
 
         function insert(){
-            # code...
+            //Declarar variables para recibir los datos del formulario nuevo
+            $nombre = $_POST['nombre'];
+            $apellidos = $_POST['apellido'];
+            $telfono = $_POST['telefono'];
+            $this->model->insert(['nombre'=>$nombre, 'apellido'=>$apellidos, 'telefono'=>$telfono]);
         }
 
     }
