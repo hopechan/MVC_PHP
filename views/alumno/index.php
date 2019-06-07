@@ -35,8 +35,8 @@
                     <td><?php echo $alumno->apellido?></td>
                     <td><?php echo $alumno->telefono;?></td>
                     <td>
-                        <a href="#">Editar</a>
-                        <a href="#">Eliminar</a>
+                        <a href="<?php constant('URL')?>alumno/editar">Editar</a>
+                        <a href="<?php echo constant('URL').'alumno/delete/'.$alumno->id?>">Eliminar</a>
                     </td>
                 </tr>
                 <?php }?>

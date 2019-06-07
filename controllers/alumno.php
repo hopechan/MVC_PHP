@@ -23,6 +23,14 @@
             $apellidos = $_POST['apellido'];
             $telfono = $_POST['telefono'];
             $this->model->insert(['nombre'=>$nombre, 'apellido'=>$apellidos, 'telefono'=>$telfono]);
+            header('Location:http://localhost/mvcphp/alumno');
+        }
+
+        //metodo eliminar
+        function delete($dato = null){
+            $id = $dato[0];
+            $this->model->delete($id);
+            $this->index();
         }
 
     }

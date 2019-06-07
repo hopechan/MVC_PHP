@@ -25,13 +25,25 @@
                 /*Objeto de la clase del controlador recibido */
                 $controller = new $url[0];
                 $controller->loadModel($url[0]);
+                //obteniendo la cantidad de parametros de la url en el indice 2
+                // ---->>>url/controlador/metodos/parametros
                 //Se verifica que si existe el metodo ingresado en la posicion 1 de la URL
-                if (isset($url[1])) {
-                    $controller->{$url[1]}();
+                $nparam = sizeof($url);
+                if ($nparam > 1) {
+                    if ($nparam>2) {
+                        $param = [];
+                        for ($i=2; $i < $nparam; $i++) { 
+                            array_push($param, $url[$i]);
+                        }
+                        //llamando el metodo recibido con sus parametros
+                        $controller->{$url[1]}($param);
+                    }else{
+                        $controller->{$url[1]}();
+                    }
                 }else{
                     $controller->index();
                 }
-            } else {
+            }else {
                 $controller = new Errores();
             }
         }

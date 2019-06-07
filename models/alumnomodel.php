@@ -39,5 +39,20 @@
                 return [];
             }
         }
+
+        //metodo delete 
+        function delete($id){
+            try {
+                $sql = "DELETE FROM Alumno WHERE id_Alumno = :id";
+                $query = $this->db->conn()->prepare($sql);
+                $query->execute(['id'=>$id]);
+                return true;
+                /*$query->bindParam(':nombre', $data['nombre']);
+                $query->bindParam(':apellido', $data['apellido']);
+                $query->bindParam(':telefono', $data['telefono']);*/
+            } catch (PDOException $e) {
+                return false;
+            }
+        }
     }
 ?>
