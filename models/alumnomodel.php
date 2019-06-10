@@ -4,7 +4,7 @@
         public function __construct() {
             parent::__construct();
         }
-
+ 
         //metodo que permite hacer un insert
         function insert($data){
             try {
@@ -54,5 +54,41 @@
                 return false;
             }
         }
+
+        function getById($id){
+            $item = new Alumnos();
+            $sql = "SELECT * FROM Alumno WHERE id_Alumno = :id";
+            $query=$this->db->conn()->prepare($sql);
+            try {
+                $query->execute(['id'=>$id]);
+                while ($row = $query->fetch()) {
+                    $item->id = $row['id_Alumno'];
+                    $item->nombre = $row['nombre'];
+                    $item->apellido = $row['apellido'];
+                    $item->telefono = $row['telefono'];
+                    //array_push($items, $item);
+                }
+                return $item;
+            } catch(PDOException $e){
+                return [];
+            }
+        }
+
+        //metodo para editar un registrp
+        function update($item){
+            $sql = "UPDATE ALUMNO SET nombre = :nombre, apellido = :apellido, telefono = :telefono WHERE id_Alumno = :id";
+            $query=$this->db->conn()->prepare($sql);
+            try {
+                $query->execute(['id'=>$item['id'], 
+                                'nombre' => $item['nombre'],
+                                'apellido' =>$item['apellido'],
+                                'telefono' =>$item['telefono']    
+                            ]);
+                return true;
+            } catch(PDOException $e){
+                return false;
+            }
+        }
+        
     }
 ?>
