@@ -47,9 +47,6 @@
                 $query = $this->db->conn()->prepare($sql);
                 $query->execute(['id'=>$id]);
                 return true;
-                /*$query->bindParam(':nombre', $data['nombre']);
-                $query->bindParam(':apellido', $data['apellido']);
-                $query->bindParam(':telefono', $data['telefono']);*/
             } catch (PDOException $e) {
                 return false;
             }

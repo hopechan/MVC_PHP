@@ -12,6 +12,7 @@
         <h4>Listado de alumnos</h4>
         <br>
         <a href="<?php constant('URL')?>alumno/nuevo">Nuevo Alumno</a>
+        
         <table>
             <thead>
                 <tr>

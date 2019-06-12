@@ -30,8 +30,12 @@
         //metodo eliminar
         function delete($dato = null){
             $id = $dato[0];
-            $this->model->delete($id);
-            $this->index();
+            if ($this->model->delete($id)) {
+                $mensaje ="Alumno eliminado correctamente";
+            } else {
+                $mensaje = "No se pudo eliminar al alumno";
+            }
+            echo $mensaje;
         }
 
         //metodo para obtener un registro

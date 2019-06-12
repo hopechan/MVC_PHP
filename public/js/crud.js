@@ -16,7 +16,7 @@ function eliminar(id, callback) {
  }
 
 btnEliminar.forEach(boton => {
-    boton.addEventListener('click', function () { 
+    boton.addEventListener('click', function (e) { 
         console.log("Click en eliminar");
         let id = boton.dataset.id;
         console.log(id);
@@ -25,7 +25,7 @@ btnEliminar.forEach(boton => {
             const tbody = document.querySelector("#cuerpoTabla");
             const fila = document.querySelector(`fila-${id}`);
             tbody.removeChild(fila);
-        });
+        })
      });
 });
 
