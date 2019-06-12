@@ -22,21 +22,21 @@
                     <th>Opciones</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody id="cuerpoTabla">
                 <?php
                     include_once 'models/alumnos.php';
                     foreach ($this->alumnos as $item) {
                         $alumno = new Alumnos();
                         $alumno = $item;
                 ?>
-                <tr>
+                <tr id="fila-<?php echo $alumno->id?>">
                     <td><?php echo $alumno->id;?></td>
                     <td><?php echo $alumno->nombre;?></td>
                     <td><?php echo $alumno->apellido?></td>
                     <td><?php echo $alumno->telefono;?></td>
                     <td>
-                        <a href="<?php echo constant('URL').'alumno/getById/'.$alumno->id?>">Editar</a>
-                        <a href="<?php echo constant('URL').'alumno/delete/'.$alumno->id?>">Eliminar</a>
+                        <a class="waves-effect waves-light btn-small">Editar</a>
+                        <a class="waves-effect waves-light btn-small" id="btnEliminar" data-id="<?php echo $alumno->id?>">Eliminar</a>
                     </td>
                 </tr>
                 <?php }?>
