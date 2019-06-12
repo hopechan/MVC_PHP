@@ -16,7 +16,7 @@ function eliminar(id, callback) {
  }
 
 btnEliminar.forEach(boton => {
-    boton.addEventListener('click', function (e) { 
+    boton.addEventListener('click', function () { 
         console.log("Click en eliminar");
         let id = boton.dataset.id;
         console.log(id);
