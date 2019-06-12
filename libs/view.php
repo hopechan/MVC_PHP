@@ -9,10 +9,6 @@
 
         function render($nombre){
             require_once "views/".$nombre.'.php';
-            /**
-             * por ej: si la variable $nombre = index.php se formaria la 
-             * ubicacion ------>view/index.php
-             */
         }
     }  
 ?>
