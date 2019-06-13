@@ -42,36 +42,23 @@
         function getById($dato = null){
             $id = $dato[0];
             $alumno = $this->model->getById($id);
+            $item = json_encode($alumno, JSON_PRETTY_PRINT);
             session_start();
             $_SESSION['id_alumno'] = $alumno->id;
+            echo $item;
             //renderizando la vista de detalles
-            $this->view->alumno = $alumno;
-            $this->view->render('alumno/detalle');
+            //$this->view->alumno = $item;
+            //$this->view->render('alumno/index');
         }
 
         function update(){
-            session_start();
-            $id = $_SESSION['id_alumno'];
+            $id = $_POST['id'];
             $nombre = $_POST['nombre'];
             $apellido = $_POST['apellido'];
             $telefono = $_POST['telefono'];
-            //se destruye la session
-            unset($_SESSION['id_alumno']);
             //$this->model->update(['id_Alumno'=> $id,'nombre'=>$nombre, 'apellido'=>$apellido, 'telefono'=>$telefono]);
             $this->model->update(['id'=>$id,'nombre'=>$nombre,'apellido'=>$apellido,'telefono'=>$telefono]);
             $this->index();
-            /*
-            if ($this->model->update(['id'=> $id,'nombre'=>$nombre, 'apellido'=>$apellidos, 'telefono'=>$telefono])) {
-                $alumno = new Alumnos();
-                $alumno->nombre = $nombre;
-                $alumno->apellido = $apellido;
-                $alumno->telefono = $telefono;
-                $this->view->alumno = $alumno;
-                $this->index();
-            }else{
-                $this->view->render('errores/index');
-            }
-            */
         }
     }
 ?>
