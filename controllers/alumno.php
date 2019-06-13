@@ -9,7 +9,13 @@
         function index(){
             $alumnos = $this->model->get();
             $this->view->alumnos = $alumnos;
-            $this->view->render('alumno/index');
+            //$this->view->render('alumno/index');
+        }
+
+        function findAll(){
+            $alumnos = $this->model->get();
+            $items = json_encode($alumnos, JSON_PRETTY_PRINT);
+            echo $items;
         }
 
         //metodo para nuevo registro
