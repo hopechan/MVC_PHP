@@ -41,18 +41,17 @@ function getById(id, callback) {
 }
 
 function editar(datos) {
-    console.log(`${URL_BASE}/update/`);
-    let data = `id=${datos[0]}, nombre=${datos[1]}, apellido=${datos[2]}, telefono=${datos[3]}`;
+    let data = `id=${datos[0]}&nombre=${datos[1]}&apellido=${datos[2]}&telefono=${datos[3]}`;
+    console.log(data);
     xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", `${URL_BASE}/update/`);
-    xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-    //xmlhttp.send(encodeURI('id=' +datos[0], 'nombre=' + datos[1], 'apellido=' + datos[2], 'telefono='+datos[3]));
-    xmlhttp.send(data);
+    xmlhttp.open("POST", `${URL_BASE}/update/`, true);
     xmlhttp.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
+        if (this.readyState == 3 && this.status == 200) {
             console.log('Se actualizo el registro');
         }
-    }
+    };
+    xmlhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+    xmlhttp.send(data);
 }
 
 btnEliminar.forEach(boton => {
